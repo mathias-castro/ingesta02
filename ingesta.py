@@ -5,7 +5,7 @@ import pymysql
 
 # --- Nombre de archivo local y bucket (igual que en tu ejemplo) ---
 ficheroUpload = "data.csv"
-nombreBucket  = "gcr-output-01"   # cámbialo si usas otro bucket
+nombreBucket  = "mcastroa-storage-aws"   # cámbialo si usas otro bucket
 
 # --- Parámetros MySQL (puedes sobreescribir con variables de entorno) ---
 dbHost  = os.getenv("DB_HOST", "host.docker.internal")  # "mysql" si usas docker-compose
@@ -47,3 +47,4 @@ if __name__ == "__main__":
     response = subir_a_s3()
     print(response)  # boto3.upload_file devuelve None en éxito
     print("Ingesta completada")
+
