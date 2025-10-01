@@ -9,11 +9,11 @@ nombreBucket  = "mcastroa-storage-aws"   # cámbialo si usas otro bucket
 
 # --- Parámetros MySQL (puedes sobreescribir con variables de entorno) ---
 dbHost  = os.getenv("DB_HOST", "host.docker.internal")  # "mysql" si usas docker-compose
-dbPort  = int(os.getenv("DB_PORT", "3306"))
+dbPort  = int(os.getenv("DB_PORT", "8080"))
 dbUser  = os.getenv("DB_USER", "root")
-dbPass  = os.getenv("DB_PASS", "tu_password")
-dbName  = os.getenv("DB_NAME", "test")
-dbTabla = os.getenv("DB_TABLE", "items")
+dbPass  = os.getenv("DB_PASS", "utec")
+dbName  = os.getenv("DB_NAME", "bd_api_employees")
+dbTabla = os.getenv("DB_TABLE", "employees")
 
 def exportar_mysql_a_csv():
     """Lee toda la tabla y la guarda como data.csv en el directorio actual."""
@@ -47,4 +47,5 @@ if __name__ == "__main__":
     response = subir_a_s3()
     print(response)  # boto3.upload_file devuelve None en éxito
     print("Ingesta completada")
+
 
